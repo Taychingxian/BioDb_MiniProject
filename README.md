@@ -51,7 +51,6 @@ BioDb_MiniProject/
 ├── D6_portal/         # Streamlit read-only portal (5 features)
 ├── D7_report/         # Technical report (PDF)
 ├── D8_video/          # Demonstration video
-├── AI_Declaration/    # AI usage logs
 └── README.md          # ← you are here
 ```
 
