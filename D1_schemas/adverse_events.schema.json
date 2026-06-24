@@ -1,0 +1,85 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "title": "AdverseEvent",
+    "description": "Most relationship-dense entity. Three mandatory references: patient_id, trial_id, intervention_id. Arm is NOT stored here; reach it via the referenced intervention's arm_label. lab_values nullable.",
+    "required": [
+      "ae_id", "patient_id", "trial_id", "intervention_id",
+      "event_name", "system_organ_class", "ctcae_grade",
+      "onset_date", "outcome", "serious", "action_taken",
+      "causality", "reported_by", "created_at"
+    ],
+    "additionalProperties": true,
+    "properties": {
+      "ae_id": {
+        "bsonType": "string",
+        "pattern": "^AE-[0-9]{8}$",
+        "description": "Unique."
+      },
+      "patient_id": {
+        "bsonType": "string",
+        "pattern": "^PT-[0-9]{6}$",
+        "description": "Mandatory. Patient who experienced the event."
+      },
+      "trial_id": {
+        "bsonType": "string",
+        "pattern": "^NCT-[0-9]{8}$",
+        "description": "Mandatory. Trial the event was reported under."
+      },
+      "intervention_id": {
+        "bsonType": "string",
+        "pattern": "^INT-[0-9]{6}$",
+        "description": "Mandatory. Intervention being administered. Path to arm runs through this."
+      },
+      "event_name": {
+        "bsonType": "string",
+        "description": "MedDRA term, e.g. Neutropenia."
+      },
+      "system_organ_class": {
+        "bsonType": "string",
+        "description": "MedDRA SOC, e.g. Blood and lymphatic system disorders."
+      },
+      "ctcae_grade": {
+        "bsonType": "int",
+        "minimum": 1,
+        "maximum": 5,
+        "description": "1 Mild .. 5 Fatal (CTCAE v5.0)."
+      },
+      "onset_date": {
+        "bsonType": "date",
+        "description": "Must be after patient enrolment (enforced at ingestion)."
+      },
+      "resolution_date": {
+        "bsonType": ["date", "null"],
+        "description": "Null if ongoing/unresolved."
+      },
+      "outcome": {
+        "enum": ["Resolved", "Resolving", "Not resolved", "Fatal", "Unknown"]
+      },
+      "serious": {
+        "bsonType": "bool",
+        "description": "True if ctcae_grade >= 3 or required hospitalisation."
+      },
+      "action_taken": {
+        "enum": ["None", "Dose reduced", "Dose interrupted", "Drug withdrawn", "Supportive care", "Other"]
+      },
+      "causality": {
+        "enum": ["Unrelated", "Unlikely", "Possible", "Probable", "Definite"]
+      },
+      "lab_values": {
+        "bsonType": ["object", "null"],
+        "description": "Embedded lab data. Null for non-lab AEs (e.g. headache, rash).",
+        "properties": {
+          "test_name": { "bsonType": "string" },
+          "value": { "bsonType": "double" },
+          "unit": { "bsonType": "string" },
+          "reference_range": { "bsonType": "string" }
+        }
+      },
+      "reported_by": {
+        "enum": ["Investigator", "Patient", "Nurse", "Sponsor"]
+      },
+      "created_at": { "bsonType": "date" }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+intervention_id,trial_id,arm_label,name,type,mechanism,dosage_amount,dosage_unit,dosage_frequency,dosage_route,duration_weeks,target_gene,target_protein,regulatory_status,created_at
+INT-000001,NCT-20240001,Arm A,Pembrolizumab,Biologic,PD-1 checkpoint inhibitor,200,mg,Biweekly,Intravenous,52,PD-L1,Programmed death-ligand 1,Approved,2021-07-03
+INT-000002,NCT-20240001,Arm B,Placebo saline,Placebo,Inactive comparator,200,mL,Biweekly,Intravenous,52,,,Approved,2021-06-28
+INT-000003,NCT-20240001,Arm A,Docetaxel,Drug,Microtubule polymerisation inhibitor,75,mg/kg,Biweekly,Intravenous,24,,,Approved,2021-07-06
+INT-000004,NCT-20240002,Arm A,Osimertinib,Drug,Third-generation EGFR inhibitor,80,mg,Once daily,Oral,52,EGFR,Epidermal growth factor receptor,Approved,2021-10-03
+INT-000005,NCT-20240002,Arm B,Gefitinib,Drug,First-generation EGFR inhibitor,250,mg,Once daily,Oral,52,EGFR,Epidermal growth factor receptor,Approved,2021-09-24
+INT-000006,NCT-20240003,Arm A,BIO-447,Biologic,Novel PD-L1/TIM-3 dual inhibitor,3,mg/kg,Weekly,Intravenous,12,PD-L1,Programmed death-ligand 1,Investigational,2020-09-15
+INT-000007,NCT-20240003,Arm B,Placebo saline,Placebo,Inactive comparator,3,mL,Weekly,Intravenous,12,,,Investigational,2020-09-06
+INT-000008,NCT-20240004,Arm A,Metformin,Drug,Biguanide / AMPK activator,500,mg,Twice daily,Oral,104,,,Approved,2021-03-22
+INT-000009,NCT-20240004,Arm B,Placebo tablet,Placebo,Inactive comparator,500,mg,Twice daily,Oral,104,,,Approved,2021-03-29
+INT-000010,NCT-20240005,Arm A,Atezolizumab,Biologic,PD-L1 checkpoint inhibitor,1200,mg,Biweekly,Intravenous,24,PD-L1,Programmed death-ligand 1,Approved,2022-02-21
+INT-000011,NCT-20240005,Arm B,Nab-Paclitaxel,Drug,Microtubule stabiliser,260,mg/kg,Weekly,Intravenous,24,,,Approved,2022-03-03
+INT-000012,NCT-20240005,Arm A,Placebo saline,Placebo,Inactive comparator,1200,mL,Biweekly,Intravenous,24,,,Approved,2022-03-09
+INT-000013,NCT-20240006,Arm A,Axicabtagene ciloleucel,Biologic,Anti-CD19 CAR-T cell therapy,,IU,Once daily,Intravenous,4,,,Approved,2021-03-31
+INT-000014,NCT-20240006,Arm B,Standard CHOP,Drug,Cyclophosphamide + doxorubicin + vincristine + prednisone,,mg,Biweekly,Intravenous,24,,,Approved,2021-04-12
+INT-000015,NCT-20240007,Arm A,Ceftriaxone,Drug,Third-generation cephalosporin,2000,mg,Once daily,Intravenous,2,,,Approved,2022-08-07
+INT-000016,NCT-20240007,Arm B,Meropenem,Drug,Carbapenem antibiotic,1000,mg,Biweekly,Intravenous,2,,,Approved,2022-07-31
+INT-000017,NCT-20240008,Arm A,MVA-HIV-B vaccine,Biologic,Modified vaccinia Ankara HIV vaccine,1,mL,Monthly,Intramuscular,24,,,Investigational,2022-09-30
+INT-000018,NCT-20240008,Arm B,Placebo saline,Placebo,Inactive comparator,1,mL,Monthly,Intramuscular,24,,,Investigational,2022-09-23
+INT-000019,NCT-20240009,Arm A,Bevacizumab,Biologic,Anti-VEGF monoclonal antibody,5,mg/kg,Biweekly,Intravenous,24,VEGFR,Vascular endothelial growth factor receptor 2,Approved,2019-11-02
+INT-000020,NCT-20240010,Arm A,Observation only,Procedure,No active intervention; biomarker sampling only,,mg,Once daily,Oral,52,,,Approved,2020-01-03

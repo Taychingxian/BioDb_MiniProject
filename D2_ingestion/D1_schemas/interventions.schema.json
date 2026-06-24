@@ -1,0 +1,66 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "title": "Intervention",
+    "description": "Therapeutic intervention scoped to exactly one trial and one arm. dosage embedded. target_gene/protein nullable (e.g. placebo has none).",
+    "required": [
+      "intervention_id", "trial_id", "arm_label", "name", "type",
+      "regulatory_status", "created_at"
+    ],
+    "additionalProperties": true,
+    "properties": {
+      "intervention_id": {
+        "bsonType": "string",
+        "pattern": "^INT-[0-9]{6}$",
+        "description": "Unique."
+      },
+      "trial_id": {
+        "bsonType": "string",
+        "pattern": "^NCT-[0-9]{8}$",
+        "description": "Parent trial. An intervention has no meaning without trial+arm context."
+      },
+      "arm_label": {
+        "bsonType": "string",
+        "description": "Must match an arm_label embedded in the parent trial document."
+      },
+      "name": {
+        "bsonType": "string",
+        "description": "Generic or brand name, e.g. Pembrolizumab, Placebo saline."
+      },
+      "type": {
+        "enum": ["Drug", "Biologic", "Device", "Procedure", "Dietary Supplement", "Placebo", "Other"]
+      },
+      "mechanism": {
+        "bsonType": "string",
+        "description": "Short mechanism of action, e.g. PD-1 checkpoint inhibitor."
+      },
+      "dosage": {
+        "bsonType": "object",
+        "description": "Embedded dosing details.",
+        "properties": {
+          "amount": { "bsonType": ["double", "null"], "description": "Null for multi-drug regimens (e.g. CHOP), cell therapies, or observation-only arms with no single dose." },
+          "unit": { "enum": ["mg", "mg/kg", "IU", "mL"] },
+          "frequency": { "enum": ["Once daily", "Twice daily", "Weekly", "Biweekly", "Monthly"] },
+          "route": { "enum": ["Oral", "Intravenous", "Subcutaneous", "Intramuscular", "Topical"] }
+        }
+      },
+      "duration_weeks": {
+        "bsonType": "int",
+        "minimum": 1,
+        "maximum": 104
+      },
+      "target_gene": {
+        "bsonType": ["string", "null"],
+        "description": "HGNC symbol, e.g. EGFR. Null if not applicable."
+      },
+      "target_protein": {
+        "bsonType": ["string", "null"],
+        "description": "UniProt-style name. Null if not applicable."
+      },
+      "regulatory_status": {
+        "enum": ["Approved", "Investigational", "Compassionate Use"]
+      },
+      "created_at": { "bsonType": "date" }
+    }
+  }
+}

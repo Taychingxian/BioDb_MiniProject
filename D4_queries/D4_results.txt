@@ -1,0 +1,124 @@
+
+==============================================================================
+AR1  Filter trials by status/phase  (status='Recruiting')
+------------------------------------------------------------------------------
+What it reveals: Lists trials matching the filter - the core trial browser query.
+Rows returned: 3  (showing up to 8)
+   {"trial_id": "NCT-20240001", "short_title": "Phase II Pembrolizumab in NSCLC", "phase": "Phase II", "status": "Recruiting", "sponsor": "BMRI", "enrolment_target": 120, "enrolled_count": 54}
+   {"trial_id": "NCT-20240005", "short_title": "Phase II Atezolizumab in Triple-Negative Breast Cancer", "phase": "Phase II", "status": "Recruiting", "sponsor": "National Cancer Institute", "enrolment_target": 180, "enrolled_count": 87}
+   {"trial_id": "NCT-20240006", "short_title": "Phase III CAR-T Cell Therapy in Relapsed B-cell Lymphoma", "phase": "Phase III", "status": "Recruiting", "sponsor": "InfectoGen Pharma", "enrolment_target": 90, "enrolled_count": 45}
+
+==============================================================================
+AR2  Patients in a trial  (trial_id='NCT-20240001')
+------------------------------------------------------------------------------
+What it reveals: Demographics of everyone enrolled in one trial; narrowable by attributes.
+Rows returned: 11  (showing up to 8)
+   {"patient_id": "PT-000005", "name": "Derek Wright", "gender": "Female", "ethnicity": "Chinese", "bmi": 41.5, "smoking_status": "Never", "diagnosis": {"icd10_code": "C50.9"}, "site_id": "SITE-03"}
+   {"patient_id": "PT-000028", "name": "Nicole Wilson", "gender": "Female", "ethnicity": "Chinese", "bmi": 28.1, "smoking_status": "Never", "diagnosis": {"icd10_code": "A09"}, "site_id": "SITE-05"}
+   {"patient_id": "PT-000036", "name": "Paul Carroll", "gender": "Female", "ethnicity": "Chinese", "bmi": 22.7, "smoking_status": "Never", "diagnosis": {"icd10_code": "C50.9"}, "site_id": "SITE-03"}
+   {"patient_id": "PT-000043", "name": "Darren Davis", "gender": "Male", "ethnicity": "Malay", "bmi": 22.1, "smoking_status": "Former", "diagnosis": {"icd10_code": "B20"}, "site_id": "SITE-05"}
+   {"patient_id": "PT-000045", "name": "Dr. Ashley James MD", "gender": "Female", "ethnicity": "Chinese", "bmi": 35.6, "smoking_status": "Former", "diagnosis": {"icd10_code": "C34.1"}, "site_id": "SITE-01"}
+   {"patient_id": "PT-000063", "name": "Mrs. Maria Williams", "gender": "Male", "ethnicity": "Malay", "bmi": 18.4, "smoking_status": "Current", "diagnosis": {"icd10_code": "C34.1"}, "site_id": "SITE-01"}
+   {"patient_id": "PT-000088", "name": "Jennifer Reed", "gender": "Male", "ethnicity": "Hispanic", "bmi": 28.3, "smoking_status": "Never", "diagnosis": {"icd10_code": "A09"}, "site_id": "SITE-02"}
+   {"patient_id": "PT-000090", "name": "Amanda Dorsey", "gender": "Male", "ethnicity": "Caucasian", "bmi": 24.4, "smoking_status": "Never", "diagnosis": {"icd10_code": "J18.9"}, "site_id": "SITE-03"}
+
+==============================================================================
+AR3  Search patients  (gender='Female', smoking_status='Never')
+------------------------------------------------------------------------------
+What it reveals: Population search across any demographic/clinical combination.
+Rows returned: 31  (showing up to 8)
+   {"patient_id": "PT-000003", "name": "Juan Calderon", "gender": "Female", "ethnicity": "Malay", "smoking_status": "Never", "diagnosis": {"icd10_code": "C61", "description": "Malignant neoplasm of prostate"}, "site_id": "SITE-05"}
+   {"patient_id": "PT-000005", "name": "Derek Wright", "gender": "Female", "ethnicity": "Chinese", "smoking_status": "Never", "diagnosis": {"icd10_code": "C50.9", "description": "Malignant neoplasm of breast, unspecified"}, "site_id": "SITE-03"}
+   {"patient_id": "PT-000006", "name": "Shannon Smith", "gender": "Female", "ethnicity": "Malay", "smoking_status": "Never", "diagnosis": {"icd10_code": "C50.9", "description": "Malignant neoplasm of breast, unspecified"}, "site_id": "SITE-05"}
+   {"patient_id": "PT-000014", "name": "Paul Jones", "gender": "Female", "ethnicity": "Malay", "smoking_status": "Never", "diagnosis": {"icd10_code": "C50.9", "description": "Malignant neoplasm of breast, unspecified"}, "site_id": "SITE-02"}
+   {"patient_id": "PT-000017", "name": "Valerie Williams", "gender": "Female", "ethnicity": "Malay", "smoking_status": "Never", "diagnosis": {"icd10_code": "C50.9", "description": "Malignant neoplasm of breast, unspecified"}, "site_id": "SITE-05"}
+   {"patient_id": "PT-000027", "name": "Alec Ryan", "gender": "Female", "ethnicity": "Chinese", "smoking_status": "Never", "diagnosis": {"icd10_code": "C50.9", "description": "Malignant neoplasm of breast, unspecified"}, "site_id": "SITE-05"}
+   {"patient_id": "PT-000028", "name": "Nicole Wilson", "gender": "Female", "ethnicity": "Chinese", "smoking_status": "Never", "diagnosis": {"icd10_code": "A09", "description": "Other gastroenteritis and colitis of infectious origin"}, "site_id": "SITE-05"}
+   {"patient_id": "PT-000032", "name": "Corey Wilson", "gender": "Female", "ethnicity": "Caucasian", "smoking_status": "Never", "diagnosis": {"icd10_code": "C61", "description": "Malignant neoplasm of prostate"}, "site_id": "SITE-01"}
+
+==============================================================================
+AR4  Patient AE history  (patient_id='PT-000028')
+------------------------------------------------------------------------------
+What it reveals: Every AE for one patient across all trials; filterable by severity.
+Rows returned: 7  (showing up to 8)
+   {"ae_id": "AE-00000112", "trial_id": "NCT-20240001", "intervention_id": "INT-000003", "event_name": "Abdominal pain", "ctcae_grade": 1, "onset_date": "2023-07-07 00:00:00", "outcome": "Not resolved", "serious": false, "causality": "Unlikely"}
+   {"ae_id": "AE-00000111", "trial_id": "NCT-20240001", "intervention_id": "INT-000002", "event_name": "Elevated creatinine", "ctcae_grade": 5, "onset_date": "2023-09-04 00:00:00", "outcome": "Fatal", "serious": true, "causality": "Probable"}
+   {"ae_id": "AE-00000106", "trial_id": "NCT-20240001", "intervention_id": "INT-000003", "event_name": "Leukopenia", "ctcae_grade": 1, "onset_date": "2023-11-26 00:00:00", "outcome": "Resolved", "serious": false, "causality": "Probable"}
+   {"ae_id": "AE-00000109", "trial_id": "NCT-20240001", "intervention_id": "INT-000001", "event_name": "Autoimmune reaction", "ctcae_grade": 3, "onset_date": "2023-12-06 00:00:00", "outcome": "Unknown", "serious": true, "causality": "Unrelated"}
+   {"ae_id": "AE-00000110", "trial_id": "NCT-20240001", "intervention_id": "INT-000001", "event_name": "Diarrhoea", "ctcae_grade": 2, "onset_date": "2024-02-20 00:00:00", "outcome": "Unknown", "serious": false, "causality": "Unlikely"}
+   {"ae_id": "AE-00000108", "trial_id": "NCT-20240001", "intervention_id": "INT-000003", "event_name": "Pruritus", "ctcae_grade": 3, "onset_date": "2024-04-23 00:00:00", "outcome": "Resolving", "serious": true, "causality": "Possible"}
+   {"ae_id": "AE-00000107", "trial_id": "NCT-20240001", "intervention_id": "INT-000002", "event_name": "Rash maculopapular", "ctcae_grade": 2, "onset_date": "2024-10-29 00:00:00", "outcome": "Not resolved", "serious": false, "causality": "Definite"}
+
+==============================================================================
+AR5  AE summary by intervention type
+------------------------------------------------------------------------------
+What it reveals: Which intervention types generate the most AEs and how many are serious.
+Rows returned: 4  (showing up to 8)
+   {"total_aes": 112, "serious_aes": 42, "intervention_type": "Drug", "serious_proportion": 0.375}
+   {"total_aes": 81, "serious_aes": 23, "intervention_type": "Biologic", "serious_proportion": 0.284}
+   {"total_aes": 78, "serious_aes": 26, "intervention_type": "Placebo", "serious_proportion": 0.333}
+   {"total_aes": 29, "serious_aes": 14, "intervention_type": "Procedure", "serious_proportion": 0.483}
+
+==============================================================================
+AR6  Enrolment progress across trials
+------------------------------------------------------------------------------
+What it reveals: Completion % vs target per trial - the enrolment tracking dashboard.
+Rows returned: 10  (showing up to 8)
+   {"trial_id": "NCT-20240003", "short_title": "Phase I Dose-Escalation of BIO-447 in Solid Tumours", "phase": "Phase I", "status": "Completed", "sponsor": "OncoBio Research", "enrolment_target": 40, "enrolled_count": 40, "completion_pct": 100.0}
+   {"trial_id": "NCT-20240007", "short_title": "Phase II Antibiotic Regimen in Drug-Resistant Pneumonia", "phase": "Phase II", "status": "Completed", "sponsor": "BMRI", "enrolment_target": 60, "enrolled_count": 60, "completion_pct": 100.0}
+   {"trial_id": "NCT-20240010", "short_title": "Not Applicable: Biomarker Profiling Study", "phase": "Not Applicable", "status": "Completed", "sponsor": "OncoBio Research", "enrolment_target": 80, "enrolled_count": 80, "completion_pct": 100.0}
+   {"trial_id": "NCT-20240002", "short_title": "Phase III Osimertinib vs Gefitinib in EGFR+ NSCLC", "phase": "Phase III", "status": "Active (not recruiting)", "sponsor": "PharmaCo Ltd", "enrolment_target": 200, "enrolled_count": 198, "completion_pct": 99.0}
+   {"trial_id": "NCT-20240004", "short_title": "Phase IV Long-term Safety of Metformin in CRC", "phase": "Phase IV", "status": "Active (not recruiting)", "sponsor": "BMRI", "enrolment_target": 150, "enrolled_count": 132, "completion_pct": 88.0}
+   {"trial_id": "NCT-20240006", "short_title": "Phase III CAR-T Cell Therapy in Relapsed B-cell Lymphoma", "phase": "Phase III", "status": "Recruiting", "sponsor": "InfectoGen Pharma", "enrolment_target": 90, "enrolled_count": 45, "completion_pct": 50.0}
+   {"trial_id": "NCT-20240005", "short_title": "Phase II Atezolizumab in Triple-Negative Breast Cancer", "phase": "Phase II", "status": "Recruiting", "sponsor": "National Cancer Institute", "enrolment_target": 180, "enrolled_count": 87, "completion_pct": 48.3}
+   {"trial_id": "NCT-20240001", "short_title": "Phase II Pembrolizumab in NSCLC", "phase": "Phase II", "status": "Recruiting", "sponsor": "BMRI", "enrolment_target": 120, "enrolled_count": 54, "completion_pct": 45.0}
+
+==============================================================================
+AR7  Causality x grade safety matrix  (trial_id='NCT-20240001')
+------------------------------------------------------------------------------
+What it reveals: Cross-tab of AEs by causality and CTCAE grade for one trial.
+Rows returned: 5  (showing up to 8)
+   {"grades": [{"grade": 2, "count": 1}, {"grade": 1, "count": 2}, {"grade": 3, "count": 1}], "row_total": 4, "causality": "Definite"}
+   {"grades": [{"grade": 3, "count": 1}, {"grade": 2, "count": 3}, {"grade": 1, "count": 3}], "row_total": 7, "causality": "Possible"}
+   {"grades": [{"grade": 2, "count": 4}, {"grade": 4, "count": 3}, {"grade": 3, "count": 2}, {"grade": 5, "count": 1}, {"grade": 1, "count": 3}], "row_total": 13, "causality": "Probable"}
+   {"grades": [{"grade": 4, "count": 1}, {"grade": 1, "count": 2}, {"grade": 2, "count": 3}], "row_total": 6, "causality": "Unlikely"}
+   {"grades": [{"grade": 2, "count": 1}, {"grade": 3, "count": 1}, {"grade": 5, "count": 1}, {"grade": 1, "count": 2}], "row_total": 5, "causality": "Unrelated"}
+
+==============================================================================
+AR8  Comorbidity vs AE burden  (>= 3 comorbidities)
+------------------------------------------------------------------------------
+What it reveals: High-comorbidity patients and their total/serious AE load.
+Rows returned: 18  (showing up to 8)
+   {"patient_id": "PT-000001", "name": "Allison Hill", "comorbidity_count": 4, "total_aes": 3, "serious_aes": 2}
+   {"patient_id": "PT-000024", "name": "Angela Hernandez", "comorbidity_count": 4, "total_aes": 4, "serious_aes": 2}
+   {"patient_id": "PT-000009", "name": "Andre Rivera", "comorbidity_count": 4, "total_aes": 5, "serious_aes": 2}
+   {"patient_id": "PT-000011", "name": "Annette Pearson", "comorbidity_count": 4, "total_aes": 5, "serious_aes": 2}
+   {"patient_id": "PT-000014", "name": "Paul Jones", "comorbidity_count": 4, "total_aes": 3, "serious_aes": 2}
+   {"patient_id": "PT-000002", "name": "Donald Booth", "comorbidity_count": 4, "total_aes": 3, "serious_aes": 1}
+   {"patient_id": "PT-000022", "name": "Patricia Gibson", "comorbidity_count": 4, "total_aes": 3, "serious_aes": 1}
+   {"patient_id": "PT-000020", "name": "Ryan Cortez", "comorbidity_count": 4, "total_aes": 5, "serious_aes": 1}
+
+==============================================================================
+AR9  Interventions by target  (gene='EGFR')
+------------------------------------------------------------------------------
+What it reveals: All interventions hitting a molecular target, with trial context.
+Rows returned: 2  (showing up to 8)
+   {"intervention_id": "INT-000004", "trial_id": "NCT-20240002", "arm_label": "Arm A", "name": "Osimertinib", "type": "Drug", "target_gene": "EGFR", "target_protein": "Epidermal growth factor receptor", "regulatory_status": "Approved", "trial_title": "Phase III Osimertinib vs Gefitinib in EGFR+ NSCLC", "trial_status": "Active (not recruiting)"}
+   {"intervention_id": "INT-000005", "trial_id": "NCT-20240002", "arm_label": "Arm B", "name": "Gefitinib", "type": "Drug", "target_gene": "EGFR", "target_protein": "Epidermal growth factor receptor", "regulatory_status": "Approved", "trial_title": "Phase III Osimertinib vs Gefitinib in EGFR+ NSCLC", "trial_status": "Active (not recruiting)"}
+
+==============================================================================
+AR10 Monthly AE trend (all trials)
+------------------------------------------------------------------------------
+What it reveals: Year-month time series of AE counts to spot reporting peaks.
+Rows returned: 61  (showing up to 8)
+   {"ae_count": 1, "serious_count": 0, "year": 2019, "month": 6}
+   {"ae_count": 1, "serious_count": 1, "year": 2019, "month": 8}
+   {"ae_count": 1, "serious_count": 0, "year": 2019, "month": 9}
+   {"ae_count": 1, "serious_count": 0, "year": 2019, "month": 12}
+   {"ae_count": 2, "serious_count": 0, "year": 2020, "month": 1}
+   {"ae_count": 2, "serious_count": 0, "year": 2020, "month": 3}
+   {"ae_count": 3, "serious_count": 2, "year": 2020, "month": 4}
+   {"ae_count": 2, "serious_count": 1, "year": 2020, "month": 5}
+
+==============================================================================
+All 10 ARs executed.

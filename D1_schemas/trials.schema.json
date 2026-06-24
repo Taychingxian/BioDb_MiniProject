@@ -1,0 +1,99 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "title": "ClinicalTrial",
+    "description": "Central entity. Arms are embedded (part of the protocol, no independent identity). Interventions and sites are referenced.",
+    "required": [
+      "trial_id", "title", "short_title", "phase", "status", "sponsor",
+      "conditions", "start_date", "estimated_end_date",
+      "enrolment_target", "enrolled_count", "arms", "sites", "created_at"
+    ],
+    "additionalProperties": true,
+    "properties": {
+      "trial_id": {
+        "bsonType": "string",
+        "pattern": "^NCT-[0-9]{8}$",
+        "description": "Unique. Format NCT-XXXXXXXX."
+      },
+      "title": { "bsonType": "string" },
+      "short_title": {
+        "bsonType": "string",
+        "maxLength": 80,
+        "description": "Abbreviated title for dashboards, max 80 chars."
+      },
+      "phase": {
+        "enum": ["Phase I", "Phase II", "Phase III", "Phase IV", "Not Applicable"]
+      },
+      "status": {
+        "enum": ["Recruiting", "Active (not recruiting)", "Completed", "Terminated", "Suspended", "Withdrawn"]
+      },
+      "sponsor": {
+        "bsonType": "string",
+        "description": "Funding/leading organisation, e.g. MCRI, PharmaCo Ltd."
+      },
+      "conditions": {
+        "bsonType": "array",
+        "minItems": 1,
+        "maxItems": 4,
+        "items": { "bsonType": "string" }
+      },
+      "interventions": {
+        "bsonType": "array",
+        "description": "References to interventions collection (one per arm). Reverse lookup also possible via intervention.trial_id.",
+        "items": { "bsonType": "string", "pattern": "^INT-[0-9]{6}$" }
+      },
+      "start_date": { "bsonType": "date" },
+      "estimated_end_date": { "bsonType": "date" },
+      "enrolment_target": {
+        "bsonType": "int",
+        "minimum": 30,
+        "maximum": 2000
+      },
+      "enrolled_count": {
+        "bsonType": "int",
+        "minimum": 0,
+        "description": "<= enrolment_target (cross-field rule enforced at ingestion)."
+      },
+      "arms": {
+        "bsonType": "array",
+        "minItems": 1,
+        "maxItems": 4,
+        "description": "Embedded treatment groups. Interventions reference these by arm_label.",
+        "items": {
+          "bsonType": "object",
+          "required": ["arm_label", "arm_type"],
+          "properties": {
+            "arm_label": { "bsonType": "string", "description": "e.g. Arm A" },
+            "arm_type": {
+              "enum": ["Experimental", "Active Comparator", "Placebo Comparator", "No Intervention"]
+            },
+            "description": { "bsonType": "string" }
+          }
+        }
+      },
+      "primary_endpoint": { "bsonType": "string" },
+      "secondary_endpoints": {
+        "bsonType": "array",
+        "minItems": 0,
+        "maxItems": 5,
+        "items": { "bsonType": "string" }
+      },
+      "sites": {
+        "bsonType": "array",
+        "minItems": 1,
+        "description": "Subset of SITE-01..SITE-05 this trial runs at.",
+        "items": { "bsonType": "string", "pattern": "^SITE-0[1-5]$" }
+      },
+      "ethical_approval": {
+        "bsonType": "object",
+        "description": "Embedded approval record.",
+        "properties": {
+          "approval_id": { "bsonType": "string" },
+          "committee": { "bsonType": "string" },
+          "approved_on": { "bsonType": "date" }
+        }
+      },
+      "created_at": { "bsonType": "date" }
+    }
+  }
+}
